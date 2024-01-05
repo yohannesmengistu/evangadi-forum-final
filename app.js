@@ -1,31 +1,31 @@
+require("dotenv").config();
 const express = require("express");
-const app = express();
-const port = 5500;
-// app.get("/", (req, res) => res.send("up and running..."));
-// db connection
 const dbConnection = require("./db/dbConfig");
-
-// user routes middleware file
-const userRoutes = require("./routes/userRoute");
-// question routes middleware file
-const questionRoutes = require("./routes/questionRoute");
-// authentication middlewar file
+const cors = require("cors");
+const userRouter = require("./routes/userRoute");
+const questionRouter = require("./routes/questionRoute");
+const answerRouter = require("./routes/answerRoute");
+//authentication middleware
 const authMiddleware = require("./middleware/authMiddleware");
-
-// json middleware to extract json data
+const app = express();
+//port number
+const port = 5500;
+app.use(cors());
 app.use(express.json());
-// user routes middleware
-app.use("/api/users", userRoutes);
+app.use(express.urlencoded({ extended: true }));
+//user routes middleware
+app.use("/api/users", userRouter);
 
-// questions routes middleware ??
-app.use("/api/questions", authMiddleware, questionRoutes);
-// answers routes middleware ??
+//question routes middleware
+app.use("/api/questions", authMiddleware, questionRouter);
+//answer routes middleware
+app.use("/api/answers", authMiddleware, answerRouter);
 async function start() {
   try {
     const result = await dbConnection.execute("select 'test' ");
     await app.listen(port);
-    console.log("database connection established");
-    console.log(`listening on ${port}`);
+    console.log("darabase connection established");
+    console.log(`listening${port}`);
   } catch (error) {
     console.log(error.message);
   }

@@ -36,7 +36,7 @@ async function postQuestions(req, res) {
       .json({ msg: "something went to wrong try again later" });
   }
 }
-//all questions function 
+//all questions function
 async function allQuestions(req, res) {
   try {
     //query all questions from the questions database
@@ -61,14 +61,12 @@ async function singleQuestions(req, res) {
     const query = "SELECT * FROM questions WHERE questionid = ?";
     const [question] = await dbConnection.query(query, [questionid]);
     // console.log(query)
-<<<<<<< HEAD
     // console.log(question[0]);
 
-=======
-    console.log(question[0]);
->>>>>>> c87adae7d75242029a6dff9e62bd804c9a3545d8
     if (question.length === 0) {
-      return res.status(StatusCodes.NOT_FOUND).json({ msg: "Question not found" });
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json({ msg: "Question not found" });
     }
     // Send the retrieved question as a JSON response
     res.status(200).json(question[0]);

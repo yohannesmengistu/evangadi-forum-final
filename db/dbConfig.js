@@ -1,9 +1,9 @@
 const mysql2 = require("mysql2");
 const dbConnection = mysql2.createPool({
-  host: "localhost",
-  user: "evangadi-admin",
-  password: "123456",
-  database: "evangadi-db",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: "evangadi_db",
   connectionLimit: 10,
 });
 
@@ -15,4 +15,4 @@ const dbConnection = mysql2.createPool({
 //   }
 // });
 
-module.exports=dbConnection.promise()
+module.exports = dbConnection.promise();

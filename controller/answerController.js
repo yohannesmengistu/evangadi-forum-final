@@ -1,12 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 const dbConnection = require("../db/dbConfig");
-<<<<<<< HEAD
 //post answer
 const post_answer = async (req, res) => {
-=======
-//post answer function 
-async function postAnswer(req, res){
->>>>>>> c87adae7d75242029a6dff9e62bd804c9a3545d8
   const { answer } = req.body;
   const questionid = req.params.questionid;
   const { userid } = req.user;
@@ -29,16 +24,10 @@ async function postAnswer(req, res){
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ msg: "somethin went to wrong try again later" });
   }
-<<<<<<< HEAD
 };
 
 //all answer
 const all_answer = async (req, res) => {
-=======
-}
-//all answer function
-async function allAnswer(req, res) {
->>>>>>> c87adae7d75242029a6dff9e62bd804c9a3545d8
   const questionid = req.params.questionid;
   try {
     const [answer] = await dbConnection.query(
