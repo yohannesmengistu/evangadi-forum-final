@@ -1,13 +1,8 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 import axios from "./components/axios";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
 import Footer from "./pages/Footer/Footer";
-import Header from "./pages/Header";
-import Home from "./pages/Home/Home";
-import NewQuestion from "./pages/Questions/NewQuestion";
-import Answer from "./pages/Answers/Answer";
+import Header from "./pages/Header/Header";
 export const AppState = createContext();
 function App() {
   const [user, setUser] = useState([]);
@@ -35,19 +30,16 @@ function App() {
   }, []);
   return (
     <AppState.Provider value={{ user, setUser }}>
+      <Header />
       <Routes>
-        <Route
+        {/* <Route
           path="/askquestion"
           element={
-            <>
-              <Header />
-              <NewQuestion />
-              <Footer />
-            </>
+            
           }
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/Answer/:questionid"
           element={
             <>
@@ -56,8 +48,8 @@ function App() {
               <Footer />
             </>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/"
           element={
             <>
@@ -66,8 +58,8 @@ function App() {
               <Footer />
             </>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/login"
           element={
             <>
@@ -76,18 +68,18 @@ function App() {
               <Footer />
             </>
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/register"
           element={
             <>
               <Header />
               <SignIn />
-              <Footer />
             </>
           }
-        />
+        /> */}
       </Routes>
+      <Footer />
     </AppState.Provider>
   );
 }

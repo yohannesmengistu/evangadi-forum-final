@@ -1,8 +1,7 @@
-import React from 'react'
-import logo from "../Images/evangadi-logo-footer.png"
+import React from "react";
+import logo from "../../assets/img/footerlogo.png";
 
-import "./Footer.css"
-
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -16,13 +15,10 @@ function Footer() {
             </a>
             <a className="col" href="https://www.youtube.com/c/weareethiopians">
               <i className="fab fa-youtube"></i>
-      
             </a>
             <a className="col" href="https://www.instagram.com/evangaditech/">
               <i className="fab fa-instagram" />
-        
             </a>
-         
           </div>
         </div>
         <div className="col-sm-12 col-md-4 tp">
@@ -56,4 +52,4 @@ function Footer() {
   );
 }
 
-export default Footer
+export default Footer;
