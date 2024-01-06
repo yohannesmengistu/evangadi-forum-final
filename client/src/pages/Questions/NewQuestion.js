@@ -17,13 +17,13 @@ const NewQuestion = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // eslint-disable-next-line no-unused-vars
       const { data } = await axios.post("/questions/post_question", form, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(data);
-      alert(data.msg);
+
       navigate("/");
     } catch (error) {
       console.log(error.response);
@@ -85,16 +85,6 @@ const NewQuestion = () => {
             <input
               className="input_text_title input_text_one"
               type="text"
-              name="tag"
-              placeholder="tag"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <input
-              className="input_text_title input_text_one"
-              type="text"
               name="title"
               placeholder="Title"
               onChange={handleChange}
@@ -113,7 +103,7 @@ const NewQuestion = () => {
               required
             />
           </div>
-          <div className="btn">
+          <div className="">
             <button className="btn btn-lg btn-primary mb-4" type="submit">
               Post Your Question
             </button>

@@ -62,7 +62,7 @@ function Header() {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link href="/Login">
+                    <Nav.Link href="/login">
                       <div
                         className="text-decoration-none nav-txt links"
                         onClick={() =>

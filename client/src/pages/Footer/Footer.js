@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../../assets/img/footerlogo.png";
-
 import "./Footer.css";
 
 function Footer() {
@@ -8,7 +7,7 @@ function Footer() {
     <div className="footer ">
       <div className="container some row">
         <div className="footer_logo tp col-sm-12 col-md-4">
-          <img src={logo} />
+          <img src={logo} alt="Evangadi logo" />
           <div className="row ic">
             <a className="col" href="https://www.facebook.com/evangaditech">
               <i className="fab fa-facebook"></i>
@@ -22,7 +21,7 @@ function Footer() {
           </div>
         </div>
         <div className="col-sm-12 col-md-4 tp">
-          <h5 className="title">Useful Link</h5>
+          <h5>Useful Link</h5>
           <ul className="st">
             <li>
               <a href="https://www.evangadi.com/explained">How it Works</a>
@@ -40,7 +39,7 @@ function Footer() {
           </ul>
         </div>
         <div className="col-sm-12 col-md-4 tp ">
-          <h5 className="title">Contact Info</h5>
+          <h5>Contact Info</h5>
           <ul className="net">
             <li>Evangadi Networks</li>
             <li>support@evangadi.com</li>
