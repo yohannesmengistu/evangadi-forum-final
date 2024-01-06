@@ -3,6 +3,8 @@ import { useEffect, useState, createContext } from "react";
 import axios from "./components/axios";
 import Footer from "./pages/Footer/Footer";
 import Header from "./pages/Header/Header";
+import SignUp from "./pages/SignIn/SignUp";
+import SignIn from "./pages/SignUp/SignIn";
 export const AppState = createContext();
 function App() {
   const [user, setUser] = useState([]);
@@ -59,25 +61,8 @@ function App() {
             </>
           }
         /> */}
-        {/* <Route
-          path="/login"
-          element={
-            <>
-              <Header />
-              <SignUp />
-              <Footer />
-            </>
-          }
-        /> */}
-        {/* <Route
-          path="/register"
-          element={
-            <>
-              <Header />
-              <SignIn />
-            </>
-          }
-        /> */}
+        <Route path="/login" element={<SignUp />} />
+        <Route path="/register" element={<SignIn />} />
       </Routes>
       <Footer />
     </AppState.Provider>

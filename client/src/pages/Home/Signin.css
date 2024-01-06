@@ -1,4 +1,3 @@
-
 .login__container{
 display: flex;
 flex-direction: column;
@@ -13,10 +12,6 @@ text-align: center;
  margin-bottom: 40px; 
 /* position: relative;
  top: 50px; */
-
-
-
-
 }
 .login__container>h4{
     padding-bottom: 30px;
@@ -33,17 +28,12 @@ text-align: center;
     border: 1.3px solid #ccc;
     border-radius: 5px;
      outline: none;
-
-
-    
 }
-
 
 
 .login__container > form  > input:focus {
   border-bottom: 2px solid #FE8402; /* Border bottom for focus state */
   transition: border-color 0.5s ease-in-out /* Added padding-bottom transition */
-
 } 
 
 .login__signInButton{
@@ -56,8 +46,6 @@ text-align: center;
     margin-top: 10px;
     /* background-color:#FE8402!important  */
     background-color:#516CF0!important;
-   
-
 }
 
 

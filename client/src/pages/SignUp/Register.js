@@ -1,8 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "../components/axiosConfig";
+import axios from "../../components/axiosConfig";
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import "../SignIn/Login.css";
 
 function Register() {
+  const [password, setpassword] = useState("");
+  const [visible, setVisble] = useState(true);
   const navigate = useNavigate();
   const usernameDom = useRef();
   const firstnameDom = useRef();
@@ -49,7 +53,7 @@ function Register() {
         <h3 className="auth-title">Join the network</h3>
         <p>
           Already have an account?
-          <Link className="lnk-toggler" to={"/"}>
+          <Link className="lnk-toggler" to={"/login"}>
             Sign in
           </Link>
         </p>
@@ -93,13 +97,19 @@ function Register() {
           />
         </div>
         <br />
-        <div>
+        <div className="form-group login-input-password">
           <input
-            className="login-input form-control input-lg"
+            className="login-input form-control input-lg col-4"
+            value={password}
             ref={passwordDom}
-            type="password"
-            placeholder="Password"
-          />
+            type={visible ? "text" : "password"}
+            id="password"
+            onChange={(e) => setpassword(e.target.value)}
+            placeholder="password"
+          />{" "}
+          <span className="icon-pass" onClick={() => setVisble(!visible)}>
+            {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+          </span>
         </div>
         <br />
         <button
@@ -108,6 +118,7 @@ function Register() {
         >
           Agree and Join
         </button>
+
         <br />
         <p>
           I agree to the{" "}
