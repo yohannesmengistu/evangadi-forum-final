@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axiosBase from "../../components/axios";
 import AnswerDetail from "./AnswerDetail";
 import "./Answer.css";
+import { CgEnter } from "react-icons/cg";
 
 const Answer = () => {
   const [form, setForm] = useState({});
@@ -22,7 +23,7 @@ const Answer = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `answers/postanswer/${questionid}`,
+        `/answers/postanswer/${questionid}`,
         form,
         {
           headers: {
@@ -31,6 +32,7 @@ const Answer = () => {
         }
       );
       e.target.reset();
+      
     } catch (error) {
       console.log(error.response);
     }
@@ -53,7 +55,7 @@ const Answer = () => {
   //loadQuestions
   const loadQuetions = async () => {
     try {
-      const { data } = await axios.get(`questions/question/${questionid}`, {
+      const { data } = await axios.get(`/questions/question/${questionid}`, {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -76,22 +78,23 @@ const Answer = () => {
       <br />
       <br />
       <div className="titl">
-        <h2 className="title">Questions</h2>
+        <h2 className="title">Question</h2>
 
         <div className="question_titles">
-          {question ? question.title : "newTitle"}4
+          {question ? question.title +" ?": "newTitle"}
         </div>
 
         <div className="question_disc">
-          {question ? question.description : "newdiscription"}
+          {question ? question?.descripition : "newdiscrption"}
         </div>
 
-        <h2 className="community_title">Answer From The Community</h2>
+        <h3 className="community_title">Answer From The Community</h3>
         <div>
-          {answer.map((answe, i) => (
-            <AnswerDetail answers={answe} key={i} />
+          {answer.map((answer, i) => (
+            <AnswerDetail answers={answer} key={i} />
           ))}
         </div>
+        {/* <h5 className="gotoquestionpae" style={{textAlign:CgEnter}}><question/></h5> */}
       </div>
       <div className="container">
         <form method="post" onSubmit={handleSubmit}>

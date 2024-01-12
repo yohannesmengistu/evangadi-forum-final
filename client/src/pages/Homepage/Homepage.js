@@ -29,7 +29,7 @@ function Homepage() {
           Authorization: "Bearer " + token,
         },
       });
-      setQuestions(data?.data?.allQuestion);
+      setQuestions(data.data.allQuestion);
     } catch (error) {
       console.log(error.response);
     }

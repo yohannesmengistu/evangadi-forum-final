@@ -18,12 +18,12 @@ const NewQuestion = () => {
     e.preventDefault();
     try {
       // eslint-disable-next-line no-unused-vars
+      // const { data } = await axios.post("/quesitions/post_question"
       const { data } = await axios.post("/questions/post_question", form, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
-
       navigate("/");
     } catch (error) {
       console.log(error.response);
@@ -97,7 +97,7 @@ const NewQuestion = () => {
               className="input_text_text input_text_one"
               maxLength="255"
               type="text"
-              name="description"
+              name="descrpition"
               placeholder="Question Description..."
               onChange={handleChange}
               required

@@ -1,17 +1,13 @@
-const express = require("express");
-const router = express.Router();
-// authonthication middleware
-const authMiddleware = require('../middleware/authMiddleware')
-
-// user controllers
-const { register, login, checkUser } = require("../controller/userController");
-
-// register route
-router.post("/register", register);
-// login user
-router.post("/login", login);
-
-// check user
-router.get("/check", authMiddleware, checkUser);
-
-module.exports = router;
+//use express router
+const express=require("express");
+const authMiddleware=require("../middleware/authMiddleware")
+const router=express.Router();
+//import user controllers
+const {register,login,checkUser}=require("../controller/userController")
+router.post("/register",register)
+//Login Route
+router.post("/login",login)
+//Check user the method is get method
+//We can check on the browser but we cannot check post request on the browser but we can use postman ro swagger
+router.get("/check",authMiddleware,checkUser)
+module.exports=router
